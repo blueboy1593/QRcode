@@ -1,54 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/scanBarcode"
-        android:layout_width="wrap_content"
+    <com.kkobook.qrcode.view.NoSwipeViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="바코드 리더"/>
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation"
+        />
 
-    <Button
-        android:id="@+id/scanBarcodeCustom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="커스텀 바코드 리더"/>
-
-    <Button
-        android:id="@+id/scanBarcodeCustomActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="커스텀 액티비티 바코드 리더"/>
-
-    <ImageView
-        android:id="@+id/barcodeImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@android:color/darker_gray"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginVertical="16dp"
-        android:background="@android:color/black"/>
-
-    <EditText
-        android:id="@+id/barcodeText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:hint="생성할 바코드 문구"/>
-
-    <Button
-        android:id="@+id/generateBarcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="바코드 생성" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
